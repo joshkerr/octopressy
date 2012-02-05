@@ -1,0 +1,465 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>    
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+	<title>{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title> 
+	
+	<meta name="title" content="{block:PostSummary}{PlaintextPostSummary} - {/block:PostSummary}{PlaintextTitle}" /> 
+	
+	{block:Description}
+		<meta name="description" content="{MetaDescription}" />
+	{/block:Description}
+	
+	<meta name="keywords" content="{block:Permalink}{block:Posts}{block:Tags}{Tag}, {/block:Tags}{/block:Posts}{/block:Permalink}" />
+	<meta name="author" content="{PlaintextTitle}" />
+	<link href="/rss" rel="alternate" title="{PlaintextTitle}" type="application/atom+xml" />
+	<meta name="if:Show Google Plus One Buttons" content="0" />	
+	<meta name="if:Show Facebook Buttons" content="0" />
+	<meta name="if:Show Twitter Buttons" content="0" />
+	<meta name="if:Show Pinterest Buttons" content="0" />
+	<meta name="if:Show Facebook Comments" content="0" />
+	<meta name="if:Show Facebook Subscribe Button" content="0" />
+	<meta name="if:Show Twitter Follow Button" content="0" />
+	<meta name="if:Show Subscribe Buttons" content="0" />
+	<meta name="if:Show Recent Posts" content="1" />
+	<meta name="if:Show Featured Posts" content="0" />
+	<meta name="if:Show Related Posts" content="0" />
+	<meta name="if:Show Latest Tweets" content="0" />
+	<meta name="if:Show FB Comment Count" content="0" />	
+	<meta name="text:Facebook Admin Username" content="" />
+	<meta name="text:Facebook Username" content="" />
+	<meta name="text:Facebook App ID" content="" />	
+	<meta name="text:Google API Key" content="" />
+	<meta name="text:Twitter Username" content="" />
+	<meta name="text:Menu Home" content="Home" />
+	<meta name="text:Menu Archives" content="Archives" />
+	<meta name="text:Menu Contact" content="Contact" />
+	<meta name="text:Copyright" content="" />
+	<meta name="text:Google Analytics ID" content="" />
+	<meta name="image:Avatar" content="" />	
+	<meta name="text:Num of Tweets" content="2" />
+	<meta name="text:Num of Featured" content="5" />
+	<meta name="text:Num of Recent" content="10" />
+	<meta name="text:Num of Related" content="10" />
+	<meta name="text:Byline" content="My Geek Journal" />
+	<meta name="text:Search URL" content="www.domain.com" />
+	
+	<!-- START For Facebook Open Graph -->
+	<meta property="fb:admins" content="{text:Facebook Admin Username}"/>
+	<meta property="fb:app_id" content="{text:Facebook App ID}"/>
+	<meta property="og:locale" content="en_US" />
+	
+	{block:PostSummary}
+		<meta property="og:title" content="{PostSummary} - {Name}" />
+		<meta itemprop="name" content="{Name}" />
+		<meta itemprop="description" content="{PostSummary}" />
+	{/block:PostSummary}
+	
+	<meta property="og:url" content="{Permalink}" />
+	<meta property="og:type" content="article" />
+
+	{block:Posts}
+		{block:Photo}<meta property="og:image" content="{PhotoURL-500}" />    {/block:Photo}
+		{block:Text}<meta property="og:image" content="{PortraitURL-128}" /> {/block:Text}
+		{block:Photoset}<meta property="og:image" content="{PortraitURL-128}" /> {/block:Photoset}
+		{block:Quote}<meta property="og:image" content="{PortraitURL-128}" /> {/block:Quote}
+		{block:Link}<meta property="og:image" content="{PortraitURL-128}" /> {/block:Link}
+		{block:Chat}<meta property="og:image" content="{PortraitURL-128}" /> {/block:Chat}
+		{block:Audio}<meta property="og:image" content="{PortraitURL-128}" /> {/block:Audio}
+		{block:Video}<meta property="og:image" content="{PortraitURL-128}" /> {/block:Video}
+		{block:Answer}<meta property="og:image" content="{PortraitURL-128}" /> {/block:Answer}
+	{/block:Posts}
+	<meta property="og:description" content="{PlaintextMetaDescription}" />
+	<meta itemprop="description" content="{PlaintextMetaDescription}" />
+	<!-- For Facebook Open Graph END -->
+	
+	  <link href="http://static.tumblr.com/zsdrhf0/zlplywbym/favicon.png" rel="icon" />
+	  <link href="http://static.tumblr.com/zsdrhf0/miplywbvl/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+	  <script src="http://static.tumblr.com/zsdrhf0/pqQlywc06/modernizr-2.0.js" type="text/javascript"></script>
+	  <script src="http://static.tumblr.com/zsdrhf0/KOvlywbzr/ender.js" type="text/javascript"></script>
+	  <script src="http://static.tumblr.com/zsdrhf0/Jmvlywc0t/octopress.js" type="text/javascript"></script>
+
+	  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+	<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css" />
+	<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css" />
+	
+	<script src="http://www.google.com/jsapi?key={text:Google API Key}" type="text/javascript"></script>
+	<style type="text/css">{CustomCSS}</style>
+	
+</head>
+
+<body>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId={text:Facebook App ID}";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<script type="text/javascript">
+
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', '{text:Google Analytics ID}']);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		if (document.location.host.indexOf("joshkerr.com") == -1) {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);	
+		};
+	})();
+
+</script>
+
+<header role="banner"><hgroup>
+		<img src="http://static.tumblr.com/zsdrhf0/WDqlywc23/ft477.png" id="coffee" align="left" alt="coffee cup" />
+	  <h1><a href="/">{Title}</a></h1>
+	  <h2>{text:Byline}</h2>
+</hgroup>
+</header>
+
+<nav role="navigation">
+	  <ul class="subscription" data-subscription="rss">
+		  <li><a href="{rss}" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+	  </ul>
+  
+	  <form action="http://google.com/search" method="get">
+		  <fieldset role="search">
+			  <input type="hidden" name="q" value="site:{text:Search URL}" />
+			  <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+		  </fieldset>
+	  </form>
+  
+	  <ul class="main-navigation">
+		  <li><a href="/">{text:Menu Home}</a></li>
+			{block:HasPages}
+				{block:Pages}
+					<li><a href="{URL}">{Label}</a></li>
+					{/block:Pages}			
+			{/block:HasPages}
+			<li><a href="/archive">{text:Menu Archives}</a></li>
+			<li><a href="/ask">{text:Menu Contact}</a></li>
+	</ul>
+</nav>
+
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+					
+		{block:Posts}
+		
+		<article>
+			<header>
+								
+				{block:Text}
+					{block:Title}
+				    <h1 class="entry-title"><a href="{Permalink}">{Title}{block:RebloggedFrom}By {ReblogRootTitle} –{/block:RebloggedFrom}</a></h1>
+					{/block:Title}
+				{block:Text}
+								
+				{block:Link}
+					<h1 class="entry-title"><a href="{Permalink}">{Name}{block:RebloggedFrom}By {ReblogRootTitle} –{/block:RebloggedFrom}</a></h1>
+				{/block:Link}
+				
+				
+				
+				
+								
+				    <p class="meta">
+						<time datetime="{block:Date}{MonthNumber}/{DayOfMonth}/{Year} {24HourWithZero}:{Minutes}:{Seconds}{/block:Date}" pubdate data-updated="true">
+					{block:Date}{ShortMonth} {DayOfMonth}, {Year}{/block:Date}
+						</time>
+						
+						{block:Date}| <a href="{Permalink}#disqus_thread">Comments</a>{/block:Date}
+						
+					</p>
+			</header>
+			
+			<div class="entry-content">
+				
+			{block:Text}{Body}{/block:Text}
+			
+			{block:Photo}
+			     <p>{LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}"/>{LinkCloseTag}</p>
+			    {block:Caption}
+			        {Caption}
+			    {/block:Caption}		
+			{/block:Photo}	
+			
+			{block:Link}	
+				{block:Description}
+					{Description}
+				{/block:Description}			
+			{/block:Link}	
+				
+			{block:Video}
+			   {Video-500}
+			    {block:Caption}
+			        {Caption}
+			    {/block:Caption}
+			{/block:Video}
+		
+	    	{block:Quote}
+				<blockquote>
+                    "{Quote}"
+				</blockquote>
+                {block:Source}
+                    <div class="source">{Source}</div>
+                {/block:Source}
+			{/block:Quote}
+		
+			{block:Photoset}	
+                {Photoset-500}
+                {block:Caption}
+                    <div class="caption">{Caption}</div>
+                {/block:Caption}
+			{/block:Photoset}
+		
+			{block:Chat}			
+	            <ul class="chat">
+	                {block:Lines}
+	                    <li class="{Alt} user_{UserNumber}">
+	                        {block:Label}
+	                            <span class="label">{Label}</span>
+	                        {/block:Label}
+
+	                        {Line}
+	                    </li>
+	                {/block:Lines}
+	            </ul>
+			{/block:Chat}
+		   
+		   {block:Audio}
+	                {AudioPlayerBlack}
+	                {block:Caption}
+	                    <div class="caption">{Caption}</div>
+	                {/block:Caption}
+	        {/block:Audio}
+		
+			</div>
+  
+		    <footer>
+		      <a rel="full-article" href="{Permalink}">Read on &rarr;</a>
+		    </footer>
+		
+  		  		{block:PermalinkPage}
+		<div id="social-sharing">
+				
+			{block:IfShowGooglePlusOneButtons}
+			<div id="google-sharing">
+				
+				
+			  <!-- Place this tag where you want the +1 button to render -->
+			  <g:plusone href="{Permalink}" size="medium" annotation="none"></g:plusone>
+
+			  <!-- Place this render call where appropriate -->
+			  <script type="text/javascript">
+			    (function() {
+			      var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			      po.src = 'https://apis.google.com/js/plusone.js';
+			      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+			    })();
+			  </script>
+				
+			</div>
+			{/block:IfShowGooglePlusOneButtons}
+				
+			{block:IfShowTwitterButtons}				
+			<div id="twitter-sharing">
+	<a href="https://twitter.com/share" class="twitter-share-button" data-url="{Permalink}" data-text="{PostSummary}" data-via="{text:Twitter Username}" data-count="none">Tweet</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+			</div>
+			{/block:IfShowTwitterButtons}		
+		
+			{block:IfShowPinterestButtons}
+				{block:Photo}
+				<div id="pinterest-sharing">		
+				<a href="http://pinterest.com/pin/create/button/?url={Permalink}&media={PhotoURL-HighRes}&description=" class="pin-it-button" count-layout="none">Pin It</a>
+				</div>
+				{/block:Photo}
+			{/block:IfShowPinterestButtons}
+					
+			{block:IfShowFacebookButtons}							
+			<div id="facebook-sharing">
+		<div class="fb-like" data-href="{Permalink}" data-send="true" data-layout="button_count" data-width="100" data-show-faces="false"></div>
+			</div>
+			{/block:IfShowFacebookButtons}							
+		</div>
+		
+		
+		
+		
+
+		
+		
+		{/block:PermalinkPage}
+		
+		
+					<script type="text/javascript">var disqus_url = "{Permalink}"; var disqus_title ="{block:PostTitle}{PostTitle}{/block:PostTitle}";</script>
+		
+		</article>
+  
+  	  	{block:PermalinkPage}
+			{block:Permalink}<div id="disqus_thread"></div>{/block:Permalink}
+		{/block:PermalinkPage}
+		
+ 
+  
+  
+  
+  	{/block:Posts}
+	
+
+
+	
+	
+  
+    <div class="pagination">
+    
+		{block:PreviousPage}
+			<a href="{PreviousPage}" class="older">&larr; newer</a>
+		{/block:PreviousPage}
+		
+		<a href="/archive">Blog Archives</a>    
+		
+		{block:NextPage}
+			<a href="{NextPage}" class="newer">older &rarr;</a>
+		{/block:NextPage}
+	    	
+
+    </div>
+</div>
+
+		 
+	<aside class="sidebar">
+  
+	    <section>	
+			<h1>About</h1>
+			<p>{Description}</p>
+			{block:IfShowFacebookSubscribeButton}
+			<div class="fb-subscribe" data-href="https://www.facebook.com/{text:Facebook Username}" data-layout="button_count" data-show-faces="false" data-width="100"></div>
+			{/block:IfShowFacebookSubscribeButton}				
+			
+		</section>		
+
+		{block:IfShowLatestTweets}
+		<section>
+			<h1>Latest Tweets</h1>		
+			<div id="twitter_update_list"></div>
+		</section>
+		{/block:IfShowLatestTweets}		
+		
+		{block:IfShowFeaturedPosts}
+		<section>
+			<h1>Featured Posts</h1>
+		<div id="featuredPosts"><p>Loading...</p></div>
+		</section>
+		{block:IfShowFeaturedPosts}		
+
+		{block:IfShowRecentPosts}		
+		<section>
+			<h1>Recent Posts</h1>
+		<div id="recentPosts"><p>Loading...</p></div>
+		</section>
+		{/block:IfShowRecentPosts}				
+				
+	</aside>
+    </div>
+  </div>
+<footer role="contentinfo">
+	<p>Copyright &copy; {CopyrightYears} - {text:Copyright} - 
+	<span class="credit">Theme by <a href="http://octopress.org">Octopress</a></span> -
+	<span class="credit">Powered by <a href="http://tumblr.com">Tumblr</a></span>
+	</p>
+</footer>
+  
+
+	
+<script type="text/javascript">
+ 
+// Grab, Parse, Display
+ 	
+	var root = location.protocol + '//' + location.host;
+    google.load("feeds", "1");
+     
+    function OnLoad() {
+     	var recentPosts = new google.feeds.FeedControl();
+	 	var featuredPosts = new google.feeds.FeedControl();
+		
+    	featuredPosts.setNumEntries({text:Num of Featured});
+    	featuredPosts.addFeed(root + "/tagged/featured/rss");     
+    	featuredPosts.draw(document.getElementById("featuredPosts"));
+		
+     	recentPosts.setNumEntries({text:Num of Recent});
+     	recentPosts.addFeed(root + "/rss");     
+     	recentPosts.draw(document.getElementById("recentPosts"));
+   }	     
+    google.setOnLoadCallback(OnLoad);
+</script>
+
+<script src="http://twitter.com/javascripts/blogger.js" type="text/javascript" charset="utf-8"></script>
+{block:IfShowLatestTweets}
+	<script src="http://twitter.com/statuses/user_timeline/{text:Twitter Username}.json?callback=twitterCallback2&count={text:Num of Tweets}" type="text/javascript" charset="utf-8"></script>
+{/block:IfShowLatestTweets}
+{block:IfShowPinterestButtons}
+<!-- Include ONCE for ALL buttons in the page -->
+<script type="text/javascript">
+(function() {
+    window.PinIt = window.PinIt || { loaded:false };
+    if (window.PinIt.loaded) return;
+    window.PinIt.loaded = true;
+    function async_load(){
+        var s = document.createElement("script");
+        s.type = "text/javascript";
+        s.async = true;
+        if (window.location.protocol == "https:")
+            s.src = "https://assets.pinterest.com/js/pinit.js";
+        else
+            s.src = "http://assets.pinterest.com/js/pinit.js";
+        var x = document.getElementsByTagName("script")[0];
+        x.parentNode.insertBefore(s, x);
+    }
+    if (window.attachEvent)
+        window.attachEvent("onload", async_load);
+    else
+        window.addEventListener("load", async_load, false);
+})();
+</script>
+{/block:IfShowPinterestButtons}
+
+			<script type="text/javascript">
+			  /**
+			    * var disqus_identifier; [Optional but recommended: Define a unique identifier (e.g. post id or slug) for this thread] 
+			    */
+			  (function() {
+			   var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+			   dsq.src = 'http://joshkerr.disqus.com/embed.js';
+			   (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			  })();
+			</script>
+			<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=joshkerr">comments powered by Disqus.</a></noscript>
+			<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+			
+			<script type="text/javascript">
+			var disqus_shortname = 'joshkerr';
+			(function () {
+			  var s = document.createElement('script'); s.async = true;
+			  s.src = 'http://joshkerr.disqus.com/count.js';
+			  (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+			}());
+			</script>
+
+</body>
+</html>
+
