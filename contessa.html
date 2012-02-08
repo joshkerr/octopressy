@@ -1,5 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" itemscope itemtype="http://schema.org/Blog">
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>    
     <meta name="HandheldFriendly" content="True" />
@@ -248,11 +252,16 @@
 		
 			</div>
   
+  		  	{block:Date}
+			{block:IndexPage}
 		    <footer>
 		      <a rel="full-article" href="{Permalink}">Read on &rarr;</a>
 		    </footer>
+			{/block:IndexPage}
+			{/block:Date}
 		
-  		  		{block:PermalinkPage}
+	{block:Date}
+  		{block:PermalinkPage}
 		<div id="social-sharing">
 				
 			{block:IfShowGooglePlusOneButtons}
@@ -303,16 +312,17 @@
 		
 		
 		{/block:PermalinkPage}
-		
+		{/block:Date}
 		
 					<script type="text/javascript">var disqus_url = "{Permalink}"; var disqus_title ="{block:PostTitle}{PostTitle}{/block:PostTitle}";</script>
 		
 		</article>
   
+  	{block:Date}
   	  	{block:PermalinkPage}
 			{block:Permalink}<div id="disqus_thread"></div>{/block:Permalink}
 		{/block:PermalinkPage}
-		
+	{/block:Date}
  
   
   
@@ -447,9 +457,6 @@
 			   (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 			  })();
 			</script>
-			<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=joshkerr">comments powered by Disqus.</a></noscript>
-			<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
-
 			
 			<script type="text/javascript">
 			var disqus_shortname = 'joshkerr';
